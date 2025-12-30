@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Commercial Insurance Brokerage | Executive Intelligence Briefing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --bg-card: #16161f;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #4f46e5;
+            --accent-pink: #ec4899;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(255,255,255,0.06);
+            --border-accent: rgba(59,130,246,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59,130,246,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Package Section */
+        .package-section {
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        /* Document Cards */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .doc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .doc-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .doc-card:hover::before {
+            opacity: 1;
+        }
+
+        .doc-card.tactical::before {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+        }
+
+        .doc-card.strategic::before {
+            background: linear-gradient(90deg, var(--accent-indigo), var(--accent-pink));
+        }
+
+        .doc-type {
+            display: inline-flex;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .doc-card.tactical .doc-type {
+            background: rgba(59,130,246,0.15);
+            color: var(--accent-blue);
+        }
+
+        .doc-card.strategic .doc-type {
+            background: rgba(79,70,229,0.15);
+            color: var(--accent-indigo);
+        }
+
+        .doc-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .doc-card.tactical .doc-icon {
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2));
+        }
+
+        .doc-card.strategic .doc-icon {
+            background: linear-gradient(135deg, rgba(79,70,229,0.2), rgba(236,72,153,0.2));
+        }
+
+        .doc-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .doc-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 16px;
+        }
+
+        .doc-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .doc-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .doc-feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .doc-feature::before {
+            content: '→';
+            color: var(--accent-emerald);
+        }
+
+        .doc-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .doc-card.tactical .doc-cta {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: white;
+        }
+
+        .doc-card.strategic .doc-cta {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-pink));
+            color: white;
+        }
+
+        .doc-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+        }
+
+        /* How to Use Section */
+        .usage-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .usage-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .usage-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(16,185,129,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .usage-content h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .usage-content p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .usage-content span {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Bottom Line */
+        .bottom-line {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .bottom-line h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .bottom-line p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .doc-grid { grid-template-columns: 1fr; }
+            .usage-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .stats-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">Executive Intelligence Briefing</div>
+            <h1>AI in Commercial <span>Insurance Brokerage</span></h1>
+            <p class="hero-subtitle">A comprehensive analysis package combining tactical execution guidance and strategic industry context for the 2025-2027 transformation window.</p>
+        </section>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value">7.5h</div>
+                <div class="stat-label">Saved per staff weekly</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">244%</div>
+                <div class="stat-label">Documented ROI</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">1M+</div>
+                <div class="stat-label">Hours saved (Marsh LenAI)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">84%</div>
+                <div class="stat-label">Large firms invested</div>
+            </div>
+        </div>
+
+        <!-- Package Contents -->
+        <section class="package-section">
+            <div class="section-label">Package Contents</div>
+            <h2 class="section-title">Three Layers of Intelligence</h2>
+            <p class="section-desc">Strategic context, tactical playbook, and live examples — everything you need to understand and execute on the AI transformation in brokerage.</p>
+
+            <div class="doc-grid">
+                <!-- Tactical Analysis -->
+                <div class="doc-card tactical">
+                    <div class="doc-type">Tactical / Operational</div>
+                    <div class="doc-icon">📊</div>
+                    <h3 class="doc-title">The AI Playbook</h3>
+                    <div class="doc-subtitle">Interactive Dashboard + PDF Report</div>
+                    <p class="doc-desc">Operational workflows, specific vendor recommendations with pricing, implementation timeline, ROI metrics, and a 6-month action plan. This is your execution guide.</p>
+                    <div class="doc-features">
+                        <span class="doc-feature">Top 10 Workflows</span>
+                        <span class="doc-feature">Vendor Matrix</span>
+                        <span class="doc-feature">Build vs Buy</span>
+                        <span class="doc-feature">Risk/Compliance</span>
+                        <span class="doc-feature">6-Month Roadmap</span>
+                    </div>
+                    <a href="index.html" class="doc-cta">
+                        <span>🚀</span>
+                        <span>Open Interactive Dashboard</span>
+                    </a>
+                </div>
+
+                <!-- Strategic Analysis -->
+                <div class="doc-card strategic">
+                    <div class="doc-type">Strategic / Industry</div>
+                    <div class="doc-icon">🎯</div>
+                    <h3 class="doc-title">2027 Operational Reality</h3>
+                    <div class="doc-subtitle">Strategic Report + Visual Infographic</div>
+                    <p class="doc-desc">Deep dive into Construction & Renewables verticals, Big Three tech stacks (Marsh LenAI, Aon Broker Copilot, WTW Neuron), skill evolution, and the 2030 vision.</p>
+                    <div class="doc-features">
+                        <span class="doc-feature">Big Three Analysis</span>
+                        <span class="doc-feature">Wrap-Up Admin</span>
+                        <span class="doc-feature">Parametric Insurance</span>
+                        <span class="doc-feature">Skill Shift Radar</span>
+                        <span class="doc-feature">2025-2027 Timeline</span>
+                    </div>
+                    <a href="strategic-infographic.html" class="doc-cta">
+                        <span>📈</span>
+                        <span>Open Strategic Infographic</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Work Products -->
+        <section class="package-section">
+            <div class="section-label">Reference Materials</div>
+            <h2 class="section-title">Sample Work Products</h2>
+            <p class="section-desc">Internal broker documentation for a Solar EPC account — submission and contract review materials.</p>
+
+            <div class="doc-grid">
+                <!-- UW Submission -->
+                <div class="doc-card tactical">
+                    <div class="doc-type">Underwriting / Placement</div>
+                    <div class="doc-icon">📋</div>
+                    <h3 class="doc-title">Internal UW Submission</h3>
+                    <div class="doc-subtitle">Solar EPC Account — Midwest</div>
+                    <p class="doc-desc">Pre-packaged submission covering operations overview, risk controls, loss history, and coverage request. Structured to address key underwriting questions upfront.</p>
+                    <div class="doc-features">
+                        <span class="doc-feature">Operations Overview</span>
+                        <span class="doc-feature">Risk Controls</span>
+                        <span class="doc-feature">Loss History</span>
+                        <span class="doc-feature">Coverage Request</span>
+                        <span class="doc-feature">UW Pre-emption</span>
+                    </div>
+                    <a href="Solar_EPC_Internal_UW_Submission.pdf" class="doc-cta" target="_blank">
+                        <span>📄</span>
+                        <span>View PDF</span>
+                    </a>
+                </div>
+
+                <!-- Contract Scorecard -->
+                <div class="doc-card strategic">
+                    <div class="doc-type">Contract Review / Risk Transfer</div>
+                    <div class="doc-icon">⚠️</div>
+                    <h3 class="doc-title">Contract Insurance Scorecard</h3>
+                    <div class="doc-subtitle">EPC Risk Transfer Analysis</div>
+                    <p class="doc-desc">Internal contract review identifying where insurance requirements may exceed market capacity. Covers indemnity analysis, AI endorsement gaps, wrap-up considerations, and coverage recommendations.</p>
+                    <div class="doc-features">
+                        <span class="doc-feature">Requirements vs Market</span>
+                        <span class="doc-feature">Risk Transfer Flags</span>
+                        <span class="doc-feature">Wrap-Up Analysis</span>
+                        <span class="doc-feature">Coverage Gaps</span>
+                        <span class="doc-feature">Recommendations</span>
+                    </div>
+                    <a href="Solar_EPC_Contract_Insurance_Scorecard_Internal.pdf" class="doc-cta" target="_blank">
+                        <span>📄</span>
+                        <span>View PDF</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="usage-section">
+            <div class="section-label">Navigation Guide</div>
+            <h2 class="section-title">How to Use This Briefing</h2>
+
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <div class="usage-icon">🔭</div>
+                    <div class="usage-content">
+                        <h4>Understand the 30,000-foot transformation</h4>
+                        <p>Start with <span>Strategic Infographic</span> → Section 1-3</p>
+                    </div>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-icon">🛠️</div>
+                    <div class="usage-content">
+                        <h4>See specific tools and what to implement first</h4>
+                        <p>Start with <span>AI Playbook Dashboard</span> → Vendor Matrix</p>
+                    </div>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-icon">📤</div>
+                    <div class="usage-content">
+                        <h4>Share a summary with colleagues</h4>
+                        <p>Use the <span>AI Playbook PDF</span> as a leave-behind</p>
+                    </div>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-icon">⚠️</div>
+                    <div class="usage-content">
+                        <h4>Understand E&O and compliance risks</h4>
+                        <p>Start with <span>AI Playbook</span> → Risk & Compliance section</p>
+                    </div>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-icon">🏢</div>
+                    <div class="usage-content">
+                        <h4>See what Marsh, Aon, WTW are building</h4>
+                        <p><span>Strategic Infographic</span> Section 4 + <span>Dashboard</span> Competitive</p>
+                    </div>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-icon">📄</div>
+                    <div class="usage-content">
+                        <h4>See what the actual output looks like</h4>
+                        <p><span>Sample Work Products</span> → UW Submission + Contract Scorecard</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Line -->
+        <section class="bottom-line">
+            <h2>The Window Is Open</h2>
+            <p>84.2% of large brokerages have invested in GenAI—but enterprise rollouts take 2-3 years. The window for individual differentiation is open NOW. The technology is proven, the ROI is documented, and the risk can be managed with appropriate guardrails.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p class="footer-text">Executive Intelligence Briefing | December 2024 | Sources: Big "I"/Reagan Consulting 2025, McKinsey, Aon, Marsh McLennan, WTW, Risk & Insurance, Insurance Journal</p>
+        </footer>
+    </div>
+</body>
+</html>
