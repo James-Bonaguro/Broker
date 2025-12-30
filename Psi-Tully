@@ -1879,13 +1879,13 @@
             <h2 class="cta-title">The Question Isn't Whether to Adopt AI</h2>
             <p class="cta-desc">It's how quickly you can deploy it effectively while your competitors are still deliberating. The technology is proven, the ROI is documented, and the risk can be managed with appropriate guardrails.</p>
             <div class="cta-buttons">
-                <a href="#" class="cta-btn primary">
-                    <span>📥</span>
-                    <span>Download Full Research Report</span>
-                </a>
-                <a href="#workflows" class="cta-btn secondary">
+                <a href="#workflows" class="cta-btn primary">
                     <span>📋</span>
-                    <span>Review Workflows</span>
+                    <span>Review All 10 Workflows</span>
+                </a>
+                <a href="#timeline" class="cta-btn secondary">
+                    <span>🚀</span>
+                    <span>See Implementation Roadmap</span>
                 </a>
             </div>
         </section>
