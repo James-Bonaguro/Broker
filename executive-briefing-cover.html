@@ -9,26 +9,34 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     :root{
-      --ink:#0f172a;          /* slate-900 */
-      --navy:#0b2a5b;         /* deep navy */
-      --slate:#475569;        /* slate-600 */
-      --muted:#64748b;        /* slate-500 */
-      --hairline:#e2e8f0;     /* slate-200 */
+      --ink:#0f172a;
+      --navy:#0b2a5b;
+      --slate:#475569;
+      --muted:#64748b;
+      --hairline:#e2e8f0;
       --bg:#ffffff;
-      --wash:#f8fafc;         /* slate-50 */
-      --accent:#1d4ed8;       /* subtle blue accent */
+      --wash:#f8fafc;
       --radius:14px;
     }
 
-    /* ===== Page / Print ===== */
     @page { size: A4; margin: 0; }
     html, body { height: 100%; }
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--ink);
       background: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
+    /* ===== Print color fidelity (CRITICAL) ===== */
+    *{
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
     .wrap{
       padding: 24px;
       display:flex;
@@ -49,13 +57,17 @@
     @media print{
       body{ background: none; }
       .wrap{ padding:0; }
-      .page{
-        box-shadow:none;
-        margin:0;
-      }
+      .page{ box-shadow:none; margin:0; }
     }
 
-    /* ===== Type System ===== */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 22px;
+    }
     .kicker{
       font-size: 11px;
       letter-spacing: 0.28em;
@@ -74,7 +86,7 @@
       line-height: 1.05;
       letter-spacing: -0.03em;
       color: var(--navy);
-      font-weight: 750;
+      font-weight: 700;
     }
     .subhead{
       margin: 0 0 22px 0;
@@ -101,17 +113,6 @@
       max-width: 860px;
     }
 
-    /* ===== Header ===== */
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--hairline);
-      margin-bottom: 22px;
-    }
-
-    /* ===== Metrics ===== */
     .metrics{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -130,14 +131,14 @@
     .metric .value{
       font-size: 28px;
       line-height: 1.05;
-      font-weight: 750;
+      font-weight: 700;
       color: var(--navy);
       letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
     .metric .value small{
       font-size: 15px;
-      font-weight: 650;
+      font-weight: 600;
       color: var(--navy);
     }
     .metric .label{
@@ -149,7 +150,6 @@
       line-height: 1.25;
     }
 
-    /* ===== Exhibit Table ===== */
     .exhibit{
       border: 1px solid var(--hairline);
       border-radius: var(--radius);
@@ -182,16 +182,12 @@
     }
     tbody tr:last-child td{ border-bottom:none; }
     .col-strong{
-      font-weight: 750;
+      font-weight: 700;
       color: var(--navy);
       white-space: nowrap;
     }
-    .note{
-      color: var(--muted);
-      font-style: normal; /* no italics (more consulting) */
-    }
+    .note{ color: var(--muted); font-style: normal; }
 
-    /* ===== How to Use (Cards) ===== */
     .grid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -214,20 +210,19 @@
     }
     .card .headline{
       font-size: 13.5px;
-      font-weight: 750;
+      font-weight: 700;
       color: var(--ink);
       margin-bottom: 8px;
       line-height: 1.35;
     }
     .card .linkline{
       font-size: 10.5px;
-      font-weight: 850;
+      font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--navy);
     }
 
-    /* ===== Bottom Line ===== */
     .bottomline{
       margin-top: auto;
       border-radius: var(--radius);
@@ -239,9 +234,7 @@
     .bottomline:before{
       content:"";
       position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
+      left:0; top:0; bottom:0;
       width: 6px;
       background: var(--navy);
     }
@@ -262,7 +255,6 @@
       font-weight: 600;
     }
 
-    /* ===== Footer ===== */
     .footer{
       margin-top: 18px;
       padding-top: 14px;
@@ -294,7 +286,6 @@
   <div class="wrap">
     <div class="page" role="document" aria-label="Executive Intelligence Briefing">
 
-      <!-- Header -->
       <div class="topbar">
         <div class="kicker">Executive Intelligence Briefing</div>
         <div class="meta">2025-2027</div>
@@ -303,7 +294,6 @@
       <h1>AI in Commercial Insurance Brokerage</h1>
       <div class="subhead">Strategic &amp; Operational Analysis</div>
 
-      <!-- Key Metrics -->
       <div class="metrics" aria-label="Key metrics">
         <div class="metric">
           <div class="value">7.5 <small>hrs</small></div>
@@ -323,7 +313,6 @@
         </div>
       </div>
 
-      <!-- What This Package Contains -->
       <div>
         <div class="section-title">What This Package Contains</div>
         <p class="body">
@@ -370,7 +359,6 @@
         </div>
       </div>
 
-      <!-- How to Use This Briefing -->
       <div style="margin-top:18px;">
         <div class="section-title">How to Use This Briefing</div>
         <div class="grid" aria-label="How to use cards">
@@ -407,7 +395,6 @@
         </div>
       </div>
 
-      <!-- Bottom Line -->
       <div class="bottomline" aria-label="Bottom line">
         <div class="label">The Bottom Line</div>
         <p>
@@ -415,7 +402,6 @@
         </p>
       </div>
 
-      <!-- Footer -->
       <div class="footer" aria-label="Footer">
         <div class="sources">
           Sources: Big I/Reagan Consulting 2025, McKinsey, Aon, Marsh McLennan, WTW, Risk &amp; Insurance, Insurance Journal, Industry Analysis
