@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI in Commercial Insurance Brokerage | Executive Intelligence Briefing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-tertiary: #1a1a25;
-            --bg-card: #16161f;
-            --accent-blue: #3b82f6;
-            --accent-cyan: #06b6d4;
-            --accent-emerald: #10b981;
-            --accent-amber: #f59e0b;
-            --accent-rose: #f43f5e;
-            --accent-purple: #8b5cf6;
-            --accent-indigo: #4f46e5;
-            --accent-pink: #ec4899;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-card: #ffffff;
+            --accent-navy: #002D72;
+            --accent-blue: #0288D1;
+            --accent-slate: #475569;
+            --accent-emerald: #059669;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
             --text-muted: #64748b;
-            --border-subtle: rgba(255,255,255,0.06);
-            --border-accent: rgba(59,130,246,0.3);
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
         }
 
         * {
@@ -33,144 +29,213 @@
         }
 
         body {
-            font-family: 'Sora', sans-serif;
-            background: var(--bg-primary);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-secondary);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(59,130,246,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59,130,246,0.02) 1px, transparent 1px);
-            background-size: 80px 80px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
-            position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
+        /* Navigation */
+        .nav {
+            background: var(--accent-navy);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
         /* Hero */
         .hero {
-            padding: 80px 0 60px;
-            text-align: center;
+            background: var(--bg-primary);
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.2);
+            padding: 6px 14px;
+            background: rgba(0,45,114,0.08);
+            border: 1px solid rgba(0,45,114,0.15);
             border-radius: 100px;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--accent-blue);
-            margin-bottom: 24px;
-        }
-
-        .hero-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+            color: var(--accent-navy);
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(32px, 4vw, 48px);
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            color: var(--accent-navy);
             margin-bottom: 16px;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .hero-subtitle {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-secondary);
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
         }
 
         /* Stats Row */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 60px;
+            gap: 1px;
+            background: var(--border-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .stat-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 20px;
+            background: var(--bg-primary);
+            padding: 24px 20px;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-navy);
+            letter-spacing: -1px;
         }
 
         .stat-label {
             font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Quick Nav Section */
+        .quick-nav {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .quick-nav-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+
+        .quick-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .quick-nav-item:hover {
+            background: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .quick-nav-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .quick-nav-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .quick-nav-sub {
+            font-size: 10px;
             color: var(--text-muted);
             margin-top: 4px;
         }
 
-        /* Package Section */
-        .package-section {
-            margin-bottom: 60px;
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-light {
+            background: var(--bg-primary);
         }
 
         .section-label {
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--accent-cyan);
-            margin-bottom: 12px;
-            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
         }
 
         .section-title {
             font-size: 28px;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            color: var(--accent-navy);
             margin-bottom: 12px;
         }
 
@@ -189,95 +254,57 @@
         }
 
         .doc-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 32px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .doc-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .doc-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .doc-card:hover::before {
-            opacity: 1;
-        }
-
-        .doc-card.tactical::before {
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-        }
-
-        .doc-card.strategic::before {
-            background: linear-gradient(90deg, var(--accent-indigo), var(--accent-pink));
+            border-color: var(--border-medium);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
         }
 
         .doc-type {
             display: inline-flex;
             padding: 4px 10px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             margin-bottom: 16px;
         }
 
         .doc-card.tactical .doc-type {
-            background: rgba(59,130,246,0.15);
+            background: rgba(2,136,209,0.1);
             color: var(--accent-blue);
         }
 
         .doc-card.strategic .doc-type {
-            background: rgba(79,70,229,0.15);
-            color: var(--accent-indigo);
+            background: rgba(0,45,114,0.08);
+            color: var(--accent-navy);
         }
 
         .doc-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .doc-card.tactical .doc-icon {
-            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2));
-        }
-
-        .doc-card.strategic .doc-icon {
-            background: linear-gradient(135deg, rgba(79,70,229,0.2), rgba(236,72,153,0.2));
+            font-size: 32px;
+            margin-bottom: 16px;
         }
 
         .doc-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 8px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
 
         .doc-subtitle {
             font-size: 13px;
             color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .doc-desc {
@@ -297,176 +324,179 @@
         .doc-feature {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
+            padding: 5px 10px;
             background: var(--bg-tertiary);
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 11px;
+            font-weight: 500;
             color: var(--text-secondary);
-        }
-
-        .doc-feature::before {
-            content: '→';
-            color: var(--accent-emerald);
         }
 
         .doc-cta {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 13px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .doc-card.tactical .doc-cta {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            background: var(--accent-blue);
             color: white;
+        }
+
+        .doc-card.tactical .doc-cta:hover {
+            background: #0277BD;
         }
 
         .doc-card.strategic .doc-cta {
-            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-pink));
+            background: var(--accent-navy);
             color: white;
         }
 
-        .doc-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59,130,246,0.3);
-        }
-
-        /* How to Use Section */
-        .usage-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 60px;
-        }
-
-        .usage-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .usage-item {
-            display: flex;
-            gap: 16px;
-            padding: 16px;
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .usage-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(16,185,129,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .usage-content h4 {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .usage-content p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .usage-content span {
-            color: var(--accent-cyan);
-            font-weight: 600;
+        .doc-card.strategic .doc-cta:hover {
+            background: #001d4a;
         }
 
         /* Bottom Line */
         .bottom-line {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-navy);
+            padding: 32px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 40px;
         }
 
-        .bottom-line h2 {
-            font-size: 32px;
+        .bottom-line h3 {
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 16px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 12px;
         }
 
         .bottom-line p {
             font-size: 16px;
             color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
+            line-height: 1.7;
+            font-style: italic;
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-subtle);
-            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg-primary);
         }
 
         .footer-text {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
+            text-align: center;
         }
 
         /* Responsive */
         @media (max-width: 900px) {
             .stats-row { grid-template-columns: repeat(2, 1fr); }
             .doc-grid { grid-template-columns: 1fr; }
-            .usage-grid { grid-template-columns: 1fr; }
+            .quick-nav-grid { grid-template-columns: repeat(3, 1fr); }
+            .nav-links { display: none; }
         }
 
         @media (max-width: 600px) {
             .stats-row { grid-template-columns: 1fr; }
+            .quick-nav-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-badge">Executive Intelligence Briefing</div>
-            <h1>AI in Commercial <span>Insurance Brokerage</span></h1>
-            <p class="hero-subtitle">A comprehensive analysis package combining tactical execution guidance and strategic industry context for the 2025-2027 transformation window.</p>
-        </section>
-
-        <!-- Stats Row -->
-        <div class="stats-row">
-            <div class="stat-item">
-                <div class="stat-value">7.5h</div>
-                <div class="stat-label">Saved per staff weekly</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">244%</div>
-                <div class="stat-label">Documented ROI</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">1M+</div>
-                <div class="stat-label">Hours saved (Marsh LenAI)</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">84%</div>
-                <div class="stat-label">Large firms invested</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <div class="nav-brand">Executive Intelligence Briefing</div>
+            <div class="nav-links">
+                <a href="#playbook" class="nav-link">AI Playbook</a>
+                <a href="#strategic" class="nav-link">Strategic Analysis</a>
+                <a href="#samples" class="nav-link">Sample Work Products</a>
             </div>
         </div>
+    </nav>
 
-        <!-- Package Contents -->
-        <section class="package-section">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">2025–2027 Analysis</div>
+            <h1>AI in Commercial Insurance Brokerage</h1>
+            <p class="hero-subtitle">A comprehensive analysis package combining tactical execution guidance and strategic industry context for the transformation window ahead.</p>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-value">7.5h</div>
+                    <div class="stat-label">Saved per staff weekly</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">244%</div>
+                    <div class="stat-label">Documented ROI</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">1M+</div>
+                    <div class="stat-label">Hours saved (Marsh LenAI)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">84%</div>
+                    <div class="stat-label">Large firms invested</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Guide -->
+    <section class="quick-nav">
+        <div class="container">
+            <div class="quick-nav-title">Quick Navigation</div>
+            <div class="quick-nav-grid">
+                <a href="#playbook" class="quick-nav-item">
+                    <div class="quick-nav-icon">🛠️</div>
+                    <div class="quick-nav-label">Tools & Implementation</div>
+                    <div class="quick-nav-sub">AI Playbook</div>
+                </a>
+                <a href="#strategic" class="quick-nav-item">
+                    <div class="quick-nav-icon">🔭</div>
+                    <div class="quick-nav-label">Industry Transformation</div>
+                    <div class="quick-nav-sub">Strategic Infographic</div>
+                </a>
+                <a href="#samples" class="quick-nav-item">
+                    <div class="quick-nav-icon">📄</div>
+                    <div class="quick-nav-label">See Actual Output</div>
+                    <div class="quick-nav-sub">Sample Work Products</div>
+                </a>
+                <a href="ai-broker-playbook-2025.html" class="quick-nav-item">
+                    <div class="quick-nav-icon">⚠️</div>
+                    <div class="quick-nav-label">E&O / Compliance</div>
+                    <div class="quick-nav-sub">Risk Section</div>
+                </a>
+                <a href="strategic-infographic.html" class="quick-nav-item">
+                    <div class="quick-nav-icon">🏢</div>
+                    <div class="quick-nav-label">Big Three Tech Stacks</div>
+                    <div class="quick-nav-sub">Marsh, Aon, WTW</div>
+                </a>
+                <a href="ai-broker-playbook-2025.html" class="quick-nav-item">
+                    <div class="quick-nav-icon">📤</div>
+                    <div class="quick-nav-label">Share with Team</div>
+                    <div class="quick-nav-sub">Leave-behind PDF</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Contents -->
+    <section class="section" id="playbook">
+        <div class="container">
             <div class="section-label">Package Contents</div>
             <h2 class="section-title">Three Layers of Intelligence</h2>
             <p class="section-desc">Strategic context, tactical playbook, and live examples — everything you need to understand and execute on the AI transformation in brokerage.</p>
@@ -477,8 +507,8 @@
                     <div class="doc-type">Tactical / Operational</div>
                     <div class="doc-icon">📊</div>
                     <h3 class="doc-title">The AI Playbook</h3>
-                    <div class="doc-subtitle">Interactive Dashboard + PDF Report</div>
-                    <p class="doc-desc">Operational workflows, specific vendor recommendations with pricing, implementation timeline, ROI metrics, and a 6-month action plan. This is your execution guide.</p>
+                    <div class="doc-subtitle">Reference Report</div>
+                    <p class="doc-desc">Operational workflows, specific vendor recommendations with pricing, implementation timeline, ROI metrics, and a 6-month action plan.</p>
                     <div class="doc-features">
                         <span class="doc-feature">Top 10 Workflows</span>
                         <span class="doc-feature">Vendor Matrix</span>
@@ -486,18 +516,17 @@
                         <span class="doc-feature">Risk/Compliance</span>
                         <span class="doc-feature">6-Month Roadmap</span>
                     </div>
-                    <a href="index.html" class="doc-cta">
-                        <span>🚀</span>
-                        <span>Open Interactive Dashboard</span>
+                    <a href="ai-broker-playbook-2025.html" class="doc-cta">
+                        Open AI Playbook →
                     </a>
                 </div>
 
                 <!-- Strategic Analysis -->
-                <div class="doc-card strategic">
+                <div class="doc-card strategic" id="strategic">
                     <div class="doc-type">Strategic / Industry</div>
                     <div class="doc-icon">🎯</div>
                     <h3 class="doc-title">2027 Operational Reality</h3>
-                    <div class="doc-subtitle">Strategic Report + Visual Infographic</div>
+                    <div class="doc-subtitle">Strategic Infographic</div>
                     <p class="doc-desc">Deep dive into Construction & Renewables verticals, Big Three tech stacks (Marsh LenAI, Aon Broker Copilot, WTW Neuron), skill evolution, and the 2030 vision.</p>
                     <div class="doc-features">
                         <span class="doc-feature">Big Three Analysis</span>
@@ -507,15 +536,16 @@
                         <span class="doc-feature">2025-2027 Timeline</span>
                     </div>
                     <a href="strategic-infographic.html" class="doc-cta">
-                        <span>📈</span>
-                        <span>Open Strategic Infographic</span>
+                        Open Strategic Infographic →
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sample Work Products -->
-        <section class="package-section">
+    <!-- Sample Work Products -->
+    <section class="section section-light" id="samples">
+        <div class="container">
             <div class="section-label">Reference Materials</div>
             <h2 class="section-title">Sample Work Products</h2>
             <p class="section-desc">Internal broker documentation for a Solar EPC account — submission and contract review materials.</p>
@@ -533,11 +563,9 @@
                         <span class="doc-feature">Risk Controls</span>
                         <span class="doc-feature">Loss History</span>
                         <span class="doc-feature">Coverage Request</span>
-                        <span class="doc-feature">UW Pre-emption</span>
                     </div>
                     <a href="Solar_EPC_Internal_UW_Submission.pdf" class="doc-cta" target="_blank">
-                        <span>📄</span>
-                        <span>View PDF</span>
+                        View PDF →
                     </a>
                 </div>
 
@@ -547,83 +575,32 @@
                     <div class="doc-icon">⚠️</div>
                     <h3 class="doc-title">Contract Insurance Scorecard</h3>
                     <div class="doc-subtitle">EPC Risk Transfer Analysis</div>
-                    <p class="doc-desc">Internal contract review identifying where insurance requirements may exceed market capacity. Covers indemnity analysis, AI endorsement gaps, wrap-up considerations, and coverage recommendations.</p>
+                    <p class="doc-desc">Internal contract review identifying where insurance requirements may exceed market capacity. Covers indemnity analysis, AI endorsement gaps, and wrap-up considerations.</p>
                     <div class="doc-features">
                         <span class="doc-feature">Requirements vs Market</span>
                         <span class="doc-feature">Risk Transfer Flags</span>
                         <span class="doc-feature">Wrap-Up Analysis</span>
                         <span class="doc-feature">Coverage Gaps</span>
-                        <span class="doc-feature">Recommendations</span>
                     </div>
                     <a href="Solar_EPC_Contract_Insurance_Scorecard_Internal.pdf" class="doc-cta" target="_blank">
-                        <span>📄</span>
-                        <span>View PDF</span>
+                        View PDF →
                     </a>
                 </div>
             </div>
-        </section>
 
-        <!-- How to Use -->
-        <section class="usage-section">
-            <div class="section-label">Navigation Guide</div>
-            <h2 class="section-title">How to Use This Briefing</h2>
-
-            <div class="usage-grid">
-                <div class="usage-item">
-                    <div class="usage-icon">🔭</div>
-                    <div class="usage-content">
-                        <h4>Understand the 30,000-foot transformation</h4>
-                        <p>Start with <span>Strategic Infographic</span> → Section 1-3</p>
-                    </div>
-                </div>
-                <div class="usage-item">
-                    <div class="usage-icon">🛠️</div>
-                    <div class="usage-content">
-                        <h4>See specific tools and what to implement first</h4>
-                        <p>Start with <span>AI Playbook Dashboard</span> → Vendor Matrix</p>
-                    </div>
-                </div>
-                <div class="usage-item">
-                    <div class="usage-icon">📤</div>
-                    <div class="usage-content">
-                        <h4>Share a summary with colleagues</h4>
-                        <p>Use the <span>AI Playbook PDF</span> as a leave-behind</p>
-                    </div>
-                </div>
-                <div class="usage-item">
-                    <div class="usage-icon">⚠️</div>
-                    <div class="usage-content">
-                        <h4>Understand E&O and compliance risks</h4>
-                        <p>Start with <span>AI Playbook</span> → Risk & Compliance section</p>
-                    </div>
-                </div>
-                <div class="usage-item">
-                    <div class="usage-icon">🏢</div>
-                    <div class="usage-content">
-                        <h4>See what Marsh, Aon, WTW are building</h4>
-                        <p><span>Strategic Infographic</span> Section 4 + <span>Dashboard</span> Competitive</p>
-                    </div>
-                </div>
-                <div class="usage-item">
-                    <div class="usage-icon">📄</div>
-                    <div class="usage-content">
-                        <h4>See what the actual output looks like</h4>
-                        <p><span>Sample Work Products</span> → UW Submission + Contract Scorecard</p>
-                    </div>
-                </div>
+            <!-- Bottom Line -->
+            <div class="bottom-line">
+                <h3>The Bottom Line</h3>
+                <p>84.2% of large brokerages have invested in GenAI—but enterprise rollouts take 2-3 years. The window for individual differentiation is open now. The technology is proven, the ROI is documented, and the risk can be managed with appropriate guardrails.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Bottom Line -->
-        <section class="bottom-line">
-            <h2>The Window Is Open</h2>
-            <p>84.2% of large brokerages have invested in GenAI—but enterprise rollouts take 2-3 years. The window for individual differentiation is open NOW. The technology is proven, the ROI is documented, and the risk can be managed with appropriate guardrails.</p>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p class="footer-text">Executive Intelligence Briefing | December 2024 | Sources: Big "I"/Reagan Consulting 2025, McKinsey, Aon, Marsh McLennan, WTW, Risk & Insurance, Insurance Journal</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Executive Intelligence Briefing | Sources: Big "I"/Reagan Consulting, McKinsey, Aon, Marsh McLennan, WTW, Risk & Insurance, Insurance Journal</p>
+        </div>
+    </footer>
 </body>
 </html>
