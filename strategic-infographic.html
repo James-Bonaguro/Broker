@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Brokerage 2027: The AI Operational Shift</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Slate 100 */
+            color: #1e293b; /* Slate 800 */
+        }
+        
+        /* Chart Container Guidelines - Strict adherence to requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Max width to prevent stretching */
+            height: 400px; /* Default height */
+            max-height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Responsive height adjustments */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        /* Card Styling for Text Content */
+        .content-card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-left: 6px solid #4F46E5; /* Indigo-600 accent */
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #4F46E5, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111827;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: #EC4899;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        /* Custom Bullet Points */
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .custom-list li::before {
+            content: "•";
+            color: #4F46E5;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-sm text-indigo-400 mb-2">← <a href="briefing-hub.html" class="hover:underline">Back to Briefing Hub</a></p>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Commercial P&C Brokerage 2027: <br>
+                <span class="gradient-text">Operational Reality & AI Impact</span>
+            </h1>
+            <p class="text-xl text-slate-300 max-w-3xl">
+                A pragmatic analysis for senior brokers in Construction & Renewable Energy. 
+                Moving beyond the hype to map specific workflow shifts, E&O risks, and the changing definition of "Broker Leverage."
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 gap-16">
+
+        <!-- Intro / Context -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="content-card">
+                <h2 class="text-2xl font-bold mb-4 text-slate-800">The "Augmented Broker" Thesis</h2>
+                <p class="mb-4 text-slate-600 leading-relaxed">
+                    By 2027, top-tier brokerage operations will shift from "process management" to "insight validation." 
+                    Generative AI will commoditize the intake, structuring, and comparison of submissions, but will simultaneously 
+                    increase the risk of "silent errors" in complex placements like <strong>Solar EPC Wrap-ups</strong> or 
+                    <strong>Mass Timber Builders Risk</strong>.
+                </p>
+                <p class="text-slate-600 leading-relaxed font-semibold">
+                    The competitive edge moves to those who can interpret AI outputs, not those who can manually compile spreadsheets.
+                </p>
+            </div>
+            <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                <h3 class="text-lg font-bold text-indigo-900 mb-2">Key Drivers (2025-2027)</h3>
+                <ul class="custom-list text-slate-700">
+                    <li><strong>Ingestion Friction:</strong> Unstructured PDFs to structured data becomes instant (Submission 2.0).</li>
+                    <li><strong>Contract Review:</strong> First-pass indemnification review moves from Legal to Broker-AI Assist.</li>
+                    <li><strong>Market Mapping:</strong> Real-time appetite matching replaces static carrier lists.</li>
+                    <li><strong>E&O Shift:</strong> Liability moves from "missed attachment" to "hallucinated coverage."</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 1: Workflow Time Shift -->
+        <section>
+            <div class="section-header">1. The Workflow Transformation</div>
+            <p class="mb-6 text-slate-600 max-w-4xl">
+                The most immediate impact of AI in large brokerage houses is the reallocation of cognitive load. 
+                Currently, senior brokers spend up to 40% of their time on low-value data structuring (re-keying exposure schedules, 
+                cleaning loss runs). By 2027, this shrinks drastically, forcing a pivot to strategy and complex negotiation.
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Chart Col -->
+                <div class="lg:col-span-2">
+                    <div class="chart-container">
+                        <canvas id="timeShiftChart"></canvas>
+                    </div>
+                </div>
+                <!-- Context Col -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-3">Analysis</h4>
+                    <p class="text-sm text-slate-600 mb-4">
+                        The "Admin / Data Entry" block collapses from 40% to 10%. This is driven by ingestion engines (extracting data from SOVs, Loss Runs, and Contracts automatically).
+                    </p>
+                    <h4 class="font-bold text-slate-800 mb-3">Strategic Implication</h4>
+                    <p class="text-sm text-slate-600">
+                        Firms will stop hiring junior brokers for data entry skills. The entry-level role evolves into "Data Steward" or "AI Validator." Senior brokers must fill the freed time with <strong>Client Strategy</strong> and <strong>Market Negotiation</strong> to justify fees.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Construction & Renewable Risk Matrix -->
+        <section>
+            <div class="section-header">2. The "Danger Zone": Automation vs. Complexity</div>
+            <p class="mb-6 text-slate-600 max-w-4xl">
+                Not all workflows are safe for automation. In Construction and Renewable Energy, the nuance of contractual risk transfer 
+                creates a "Danger Zone." High-severity, low-frequency risks (like DSU on a delayed Solar project) require human judgment 
+                that AI cannot yet replicate reliably.
+            </p>
+
+            <div class="grid grid-cols-1 gap-8">
+                <div class="chart-container" style="max-width: 900px; height: 500px;">
+                    <canvas id="riskBubbleChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+                        <h5 class="font-bold text-green-800 text-sm">Safe Automation</h5>
+                        <p class="text-xs text-slate-700 mt-1">COI Issuance, Auto-Renewals, Basic Endorsements. Low severity if wrong, high volume.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-500">
+                        <h5 class="font-bold text-yellow-800 text-sm">Hybrid / Assist</h5>
+                        <p class="text-xs text-slate-700 mt-1">Loss Run Analysis, Initial Market Scoping. AI drafts, Human verifies.</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded border-l-4 border-red-500">
+                        <h5 class="font-bold text-red-800 text-sm">Danger Zone (Human Led)</h5>
+                        <p class="text-xs text-slate-700 mt-1">DSU/ALOP calculations, Wrap-up Indemnification reviews. AI lacks context for "project specific" nuance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Broker's Edge (Radar) -->
+        <section>
+            <div class="section-header">3. The Skill Shift: Where Leverage Lives</div>
+            <p class="mb-6 text-slate-600 max-w-4xl">
+                As technical administration becomes commoditized, the "Edge" for a broker shifts entirely to soft skills and complex 
+                problem-solving. The chart below compares the competency profile of a traditional broker vs. the 2027 model.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="chart-container">
+                    <canvas id="skillRadarChart"></canvas>
+                </div>
+                <div class="space-y-4">
+                    <div class="content-card">
+                        <h4 class="font-bold text-indigo-700">Diminishing Value</h4>
+                        <p class="text-sm text-slate-600">
+                            <strong>Manual Rating & Form Checking:</strong> Carriers and internal tools will automate this. Being a "forms expert" is no longer a differentiator if the machine knows the forms better.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h4 class="font-bold text-pink-600">Increasing Value</h4>
+                        <p class="text-sm text-slate-600">
+                            <strong>Complex Negotiation & Empathy:</strong> When the data is transparent, the deal gets done on relationships and creative structuring.
+                        </p>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>"Prompt Engineering" for Coverage:</strong> The ability to query the internal knowledge base to find obscure exclusions or precedent claims.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Architecture Diagram (HTML/Tailwind) -->
+        <section>
+            <div class="section-header">4. Inside the "Big 3" Tech Stack</div>
+            <p class="mb-6 text-slate-600 max-w-4xl">
+                Large brokerages (Marsh, Aon, WTW) are not just using ChatGPT. They are building proprietary "Moats" using their 
+                vast historical placement data. This diagram illustrates the typical architecture being deployed.
+            </p>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                <!-- Layer 1: Data Lake -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-2">
+                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs font-bold uppercase tracking-wide mr-2">Layer 1</span>
+                        <h4 class="font-bold text-slate-800">The Data Foundation (Unstructured to Structured)</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 border border-slate-300 p-4 rounded text-center">
+                            <div class="text-2xl mb-2">📄</div>
+                            <div class="font-bold text-slate-700 text-sm">Policy PDFs</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-300 p-4 rounded text-center">
+                            <div class="text-2xl mb-2">📧</div>
+                            <div class="font-bold text-slate-700 text-sm">Email Threads</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-300 p-4 rounded text-center">
+                            <div class="text-2xl mb-2">📊</div>
+                            <div class="font-bold text-slate-700 text-sm">Loss Runs</div>
+                        </div>
+                    </div>
+                    <!-- Arrow Down -->
+                    <div class="flex justify-center my-2 text-slate-400 text-xl">▼</div>
+                </div>
+
+                <!-- Layer 2: The Brain -->
+                <div class="mb-8 relative p-6 bg-indigo-50 border-2 border-dashed border-indigo-200 rounded-xl">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white px-3 py-1 rounded-br-lg rounded-tl-lg text-xs font-bold">Layer 2: The Proprietary Engine</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h5 class="font-bold text-indigo-700 mb-2">The Ingestion LLM</h5>
+                            <p class="text-xs text-slate-600">Specialized models trained to read "Insurance Speak." Extracts limits, sub-limits, and exclusions into JSON.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h5 class="font-bold text-pink-600 mb-2">The Benchmarking Core</h5>
+                            <p class="text-xs text-slate-600">Historical placement data. "What did we pay for Solar DSU in Texas last year?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 3: The Broker Interface -->
+                <div>
+                    <div class="flex items-center mb-2">
+                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs font-bold uppercase tracking-wide mr-2">Layer 3</span>
+                        <h4 class="font-bold text-slate-800">The Broker Cockpit (2027)</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-green-50 border border-green-200 p-3 rounded text-center">
+                            <div class="font-bold text-green-800 text-sm">Auto-Submission Gen</div>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 p-3 rounded text-center">
+                            <div class="font-bold text-blue-800 text-sm">Policy Comparison</div>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 p-3 rounded text-center">
+                            <div class="font-bold text-purple-800 text-sm">Clause Drafter</div>
+                        </div>
+                        <div class="bg-orange-50 border border-orange-200 p-3 rounded text-center">
+                            <div class="font-bold text-orange-800 text-sm">Compliance Check</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Implementation Timeline -->
+        <section>
+             <div class="section-header">5. Adoption Timeline</div>
+             <div class="relative border-l-4 border-slate-200 ml-4 space-y-8">
+                
+                <!-- 2025 -->
+                <div class="ml-6">
+                    <div class="absolute -left-2.5 mt-1.5 w-5 h-5 rounded-full bg-indigo-600 border-4 border-white"></div>
+                    <h4 class="font-bold text-lg text-slate-800">2025: The Pilot Phase (Current)</h4>
+                    <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+                        Firms deploy internal "Walled Garden" LLMs (e.g., private ChatGPT instances). Focus is on <strong>Drafting emails, summarizing policies, and marketing content</strong>. Real transactional data is still siloed.
+                    </p>
+                </div>
+
+                <!-- 2026 -->
+                <div class="ml-6">
+                    <div class="absolute -left-2.5 mt-1.5 w-5 h-5 rounded-full bg-pink-500 border-4 border-white"></div>
+                    <h4 class="font-bold text-lg text-slate-800">2026: The Integration Phase</h4>
+                    <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+                        AI connects to the Agency Management System (AMS). <strong>First reliable "Auto-Renewals" for small commercial lines.</strong> Solar/Construction teams see AI-assisted contract review tools piloted for standard MSAs.
+                    </p>
+                </div>
+
+                <!-- 2027 -->
+                <div class="ml-6">
+                    <div class="absolute -left-2.5 mt-1.5 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white"></div>
+                    <h4 class="font-bold text-lg text-slate-800">2027: The Scale Phase</h4>
+                    <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+                        <strong>"Submission-to-Quote" automation</strong> for mid-market construction. Brokers receive pre-negotiated options from the system. The role shifts entirely to verifying the AI's work and managing the client relationship.
+                    </p>
+                </div>
+
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>Generated for Operational Analysis • Commercial P&C Focus (Construction & Energy)</p>
+        <p class="mt-2"><a href="briefing-hub.html" class="text-indigo-400 hover:underline">← Back to Briefing Hub</a></p>
+    </footer>
+
+    <script>
+        // --- UTILITIES ---
+        // Label wrapping logic for Chart.js (max ~16 chars)
+        function wrapLabel(str, maxChars = 16) {
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChars) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Common Chart Options
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#475569';
+        
+        const commonTooltips = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels ? item.chart.data.labels[item.dataIndex] : '';
+                    if (!label && item.raw && item.raw.label) label = item.raw.label; // For bubble charts
+                    
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: Time Shift (Stacked Bar) ---
+        const ctxTime = document.getElementById('timeShiftChart').getContext('2d');
+        new Chart(ctxTime, {
+            type: 'bar',
+            data: {
+                labels: ['2024 (Current)', '2027 (Projected)'],
+                datasets: [
+                    {
+                        label: 'Admin & Data Entry',
+                        data: [40, 10], // Huge reduction
+                        backgroundColor: '#94a3b8', // Slate 400 (Boring work)
+                    },
+                    {
+                        label: 'Technical Processing',
+                        data: [25, 20], // Slight reduction (AI assist)
+                        backgroundColor: '#818cf8', // Indigo 400
+                    },
+                    {
+                        label: 'Client Strategy',
+                        data: [20, 35], // Increase
+                        backgroundColor: '#4f46e5', // Indigo 600
+                    },
+                    {
+                        label: 'Market Negotiation',
+                        data: [15, 35], // Increase
+                        backgroundColor: '#ec4899', // Pink 500
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Broker Weekly Time Allocation (%)',
+                        font: { size: 16, weight: 'bold' }
+                    },
+                    tooltip: commonTooltips,
+                    legend: { position: 'bottom' }
+                },
+                scales: {
+                    x: { stacked: true },
+                    y: { 
+                        stacked: true, 
+                        max: 100,
+                        title: { display: true, text: 'Percentage of Work Week' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: Risk Matrix (Bubble) ---
+        // X: Automation Potential, Y: E&O Risk Severity, R: Frequency/Volume
+        const ctxBubble = document.getElementById('riskBubbleChart').getContext('2d');
+        
+        // Data points tailored to Construction/Renewables
+        const riskData = [
+            { x: 90, y: 15, r: 15, label: 'COI Issuance' }, // High auto, low risk, high vol
+            { x: 80, y: 30, r: 10, label: 'Basic Renewals' },
+            { x: 70, y: 40, r: 12, label: 'Loss Run Summaries' },
+            { x: 60, y: 85, r: 8,  label: 'Contract Review (Indemnity)' }, // High risk, mid auto
+            { x: 20, y: 95, r: 6,  label: 'DSU / ALOP Analysis' }, // Low auto, extreme risk
+            { x: 30, y: 80, r: 7,  label: 'Wrap-Up Structuring' },
+            { x: 50, y: 60, r: 9,  label: 'Market Submission' },
+            { x: 10, y: 70, r: 5,  label: 'Complex Claims' }
+        ];
+
+        new Chart(ctxBubble, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Brokerage Tasks',
+                    data: riskData,
+                    backgroundColor: function(context) {
+                        const val = context.raw;
+                        if (!val) return '#ccc';
+                        // Color coding regions
+                        if (val.y > 70 && val.x < 50) return '#ef4444'; // Red: Danger Zone (High Risk, Low Auto)
+                        if (val.y > 70 && val.x >= 50) return '#f97316'; // Orange: Caution (AI might hallucinate)
+                        if (val.x > 70) return '#10b981'; // Green: Safe Automation
+                        return '#6366f1'; // Default
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'The "Danger Zone": Automation vs. E&O Risk',
+                        font: { size: 16, weight: 'bold' }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].raw.label;
+                            },
+                            label: function(context) {
+                                return `Auto Potential: ${context.raw.x}%, Risk: ${context.raw.y}%`;
+                            }
+                        }
+                    },
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Automation Potential (%)' },
+                        min: 0, max: 100
+                    },
+                    y: {
+                        title: { display: true, text: 'E&O Risk Severity (%)' },
+                        min: 0, max: 100
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: Skill Shift (Radar) ---
+        const ctxRadar = document.getElementById('skillRadarChart').getContext('2d');
+        const skillLabels = [
+            'Data Entry & Formatting', 
+            'Policy Form Knowledge', 
+            'Compliance Checking', 
+            'Complex Negotiation', 
+            'Client Empathy', 
+            'Tech/AI Literacy',
+            'Risk Engineering'
+        ];
+        
+        // Apply wrapping to radar labels
+        const wrappedSkillLabels = skillLabels.map(l => wrapLabel(l));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: wrappedSkillLabels,
+                datasets: [
+                    {
+                        label: 'Traditional Broker (2024)',
+                        data: [90, 85, 80, 60, 65, 30, 50],
+                        fill: true,
+                        backgroundColor: 'rgba(148, 163, 184, 0.2)', // Slate
+                        borderColor: '#94a3b8',
+                        pointBackgroundColor: '#94a3b8'
+                    },
+                    {
+                        label: 'AI-Augmented Broker (2027)',
+                        data: [20, 40, 30, 95, 90, 90, 85], // Shift to soft skills + tech
+                        fill: true,
+                        backgroundColor: 'rgba(236, 72, 153, 0.2)', // Pink
+                        borderColor: '#ec4899',
+                        pointBackgroundColor: '#ec4899'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Broker Skill Profile Evolution',
+                        font: { size: 16, weight: 'bold' }
+                    },
+                    tooltip: commonTooltips,
+                    legend: { position: 'bottom' }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e2e8f0' },
+                        grid: { color: '#e2e8f0' },
+                        pointLabels: {
+                            font: { size: 11, weight: '600' },
+                            color: '#1e293b'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
