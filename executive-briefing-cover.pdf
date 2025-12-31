@@ -1,139 +1,429 @@
-\documentclass[11pt, a4paper]{article}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Intelligence Briefing</title>
 
-% --- UNIVERSAL PREAMBLE BLOCK ---
-% Increased margins from 1.2cm to 2.0cm for the sides to prevent clipping
-\usepackage[a4paper, top=1.5cm, bottom=1.5cm, left=2.0cm, right=2.0cm]{geometry}
-\usepackage{fontspec}
-\usepackage[english, bidi=basic, provide=*]{babel}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-\babelprovide[import, onchar=ids fonts]{english}
+    :root{
+      --ink:#0f172a;          /* slate-900 */
+      --navy:#0b2a5b;         /* deep navy */
+      --slate:#475569;        /* slate-600 */
+      --muted:#64748b;        /* slate-500 */
+      --hairline:#e2e8f0;     /* slate-200 */
+      --bg:#ffffff;
+      --wash:#f8fafc;         /* slate-50 */
+      --accent:#1d4ed8;       /* subtle blue accent */
+      --radius:14px;
+    }
 
-% Set default font to Sans Serif (Noto Sans)
-\babelfont{rm}{Noto Sans}
+    /* ===== Page / Print ===== */
+    @page { size: A4; margin: 0; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: #f1f5f9;
+    }
+    .wrap{
+      padding: 24px;
+      display:flex;
+      justify-content:center;
+    }
+    .page{
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--bg);
+      box-sizing: border-box;
+      padding: 44px 54px 42px 54px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      overflow:hidden;
+    }
+    @media print{
+      body{ background: none; }
+      .wrap{ padding:0; }
+      .page{
+        box-shadow:none;
+        margin:0;
+      }
+    }
 
-% --- DESIGN PACKAGES ---
-\usepackage[table]{xcolor}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{tcolorbox}
-\usepackage{multicol}
+    /* ===== Type System ===== */
+    .kicker{
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .meta{
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    h1{
+      margin: 10px 0 10px 0;
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      font-weight: 750;
+    }
+    .subhead{
+      margin: 0 0 22px 0;
+      font-size: 18px;
+      line-height: 1.35;
+      color: var(--slate);
+      font-weight: 450;
+      max-width: 760px;
+    }
 
-% Define Consulting Palette
-\definecolor{NavyBlue}{HTML}{00204E}
-\definecolor{SlateGrey}{HTML}{455A64}
-\definecolor{AccentBlue}{HTML}{F0F7FF}
-\definecolor{BorderBlue}{HTML}{A5C8E4}
-\definecolor{TextGrey}{HTML}{263238}
+    .section-title{
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--muted);
+      margin: 0 0 12px 0;
+    }
+    .body{
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0 0 18px 0;
+      max-width: 860px;
+    }
 
-% --- LAYOUT CONFIGURATION ---
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt} % Slightly reduced skip to account for larger margins
+    /* ===== Header ===== */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 22px;
+    }
 
-% Section Header Styling
-\titleformat{\section}
-  {\color{NavyBlue}\normalfont\fontsize{11}{13}\bfseries\uppercase}
-  {}{0em}
-  {}[\titlerule]
-\titlespacing*{\section}{0pt}{10pt}{4pt}
+    /* ===== Metrics ===== */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 10px 0 26px 0;
+      padding: 16px;
+      background: var(--wash);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+    }
+    .metric{
+      padding: 12px 10px;
+      border-right: 1px solid var(--hairline);
+    }
+    .metric:last-child{ border-right:none; }
+    .metric .value{
+      font-size: 28px;
+      line-height: 1.05;
+      font-weight: 750;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .metric .value small{
+      font-size: 15px;
+      font-weight: 650;
+      color: var(--navy);
+    }
+    .metric .label{
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1.25;
+    }
 
-\begin{document}
+    /* ===== Exhibit Table ===== */
+    .exhibit{
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      overflow:hidden;
+      margin-top: 10px;
+    }
+    table{
+      width:100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    thead th{
+      background: #f1f5f9;
+      color: var(--navy);
+      text-align:left;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--hairline);
+      font-weight: 800;
+    }
+    tbody td{
+      padding: 12px 14px;
+      border-bottom: 1px solid #eef2f7;
+      vertical-align: top;
+      color: var(--slate);
+    }
+    tbody tr:last-child td{ border-bottom:none; }
+    .col-strong{
+      font-weight: 750;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .note{
+      color: var(--muted);
+      font-style: normal; /* no italics (more consulting) */
+    }
 
-% --- HEADER BLOCK ---
-\begin{minipage}[t]{0.70\textwidth}
-    {\color{SlateGrey}\fontsize{8}{10}\selectfont STRATEGIC INTELLIGENCE UNIT | DECEMBER 2024}\\[0.2cm]
-    {\color{NavyBlue}\fontsize{24}{28}\bfseries AI in Commercial Insurance\\ Brokerage}\\[0.15cm]
-    {\color{TextGrey}\fontsize{12}{14}\selectfont 2025--2027 Strategic \& Operational Analysis}
-\end{minipage}
-\begin{minipage}[t]{0.30\textwidth}
-    \flushright
-    \begin{tcolorbox}[colback=NavyBlue, colframe=NavyBlue, arc=0mm, top=2mm, bottom=2mm, left=2mm, right=2mm]
-        \centering
-        \color{white}\fontsize{8}{10}\selectfont \textbf{EXECUTIVE BRIEFING}\\ CONFIDENTIAL
-    \end{tcolorbox}
-\end{minipage}
+    /* ===== How to Use (Cards) ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 18px;
+      margin-top: 8px;
+    }
+    .card{
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+    .card .mini{
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .card .headline{
+      font-size: 13.5px;
+      font-weight: 750;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .card .linkline{
+      font-size: 10.5px;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
 
-\vspace{0.4cm}
+    /* ===== Bottom Line ===== */
+    .bottomline{
+      margin-top: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--hairline);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 16px 18px;
+      position:relative;
+    }
+    .bottomline:before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width: 6px;
+      background: var(--navy);
+    }
+    .bottomline .label{
+      margin-left: 10px;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .bottomline p{
+      margin: 0 0 0 10px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink);
+      font-weight: 600;
+    }
 
-% --- OVERVIEW ---
-\begin{tcolorbox}[colback=AccentBlue, colframe=BorderBlue, arc=0mm, boxrule=0.75pt]
-    \fontsize{10}{13}\selectfont
-    \textbf{Executive Summary:} This briefing synthesizes two complementary analyses of AI's impact on commercial insurance brokerage operations. It provides both strategic industry context and tactical execution guidance, addressing the critical transition from theoretical potential to realized operational efficiency.
-\end{tcolorbox}
+    /* ===== Footer ===== */
+    .footer{
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--hairline);
+      display:flex;
+      justify-content:space-between;
+      gap: 18px;
+      align-items:flex-end;
+    }
+    .footer .sources{
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      max-width: 720px;
+    }
+    .footer .conf{
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align:right;
+      white-space: nowrap;
+    }
+  </style>
+</head>
 
-% --- PACKAGE CONTENTS TABLE ---
-\section{Briefing Architecture \& Strategic Focus}
-\vspace{0.1cm}
-{\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{l X X}
-    \rowcolor{NavyBlue}
-    \textbf{\color{white} DOCUMENT} & \textbf{\color{white} OPERATIONAL FOCUS} & \textbf{\color{white} EXECUTIVE USE CASE} \\ \midrule
-    \textbf{1. Interactive Dashboard} & Workflow optimization, ROI metrics. & Tool selection and implementation timelines. \\ 
-    \textbf{2. AI Playbook PDF} & Workflows, risk/compliance, build/buy. & Strategic reference for leadership teams. \\ 
-    \textbf{3. Strategic Infographic} & Vertical stacks, Big Three analysis. & Understanding vertical-specific disruption. \\ 
-    \textbf{4. Submission Samples} & UW Packages \& Contract Scorecards. & Proof of concept for AI-augmented judgment. \\ \bottomrule
-\end{tabularx}}
+<body>
+  <div class="wrap">
+    <div class="page" role="document" aria-label="Executive Intelligence Briefing">
 
-\vspace{0.5cm}
+      <!-- Header -->
+      <div class="topbar">
+        <div class="kicker">Executive Intelligence Briefing</div>
+        <div class="meta">2025-2027</div>
+      </div>
 
-% --- KPI GRID ---
-\section{Impact Metrics: The ROI of Adoption}
-\vspace{0.2cm}
-\begin{multicols}{4}
-    \centering
-    {\color{NavyBlue}\fontsize{18}{20}\bfseries 7.5 hrs}\\[0.1cm]
-    {\fontsize{7}{9}\selectfont Weekly savings\\ per staff member}
-    
-    \columnbreak
-    
-    {\color{NavyBlue}\fontsize{18}{20}\bfseries 244\%}\\[0.1cm]
-    {\fontsize{7}{9}\selectfont ROI on AI platform\\ investment}
-    
-    \columnbreak
-    
-    {\color{NavyBlue}\fontsize{18}{20}\bfseries 60x}\\[0.1cm]
-    {\fontsize{7}{9}\selectfont Policy comparison\\ acceleration}
-    
-    \columnbreak
-    
-    {\color{NavyBlue}\fontsize{18}{20}\bfseries 1M+}\\[0.1cm]
-    {\fontsize{7}{9}\selectfont Hours saved annually\\ (Marsh McLennan)}
-\end{multicols}
+      <h1>AI in Commercial Insurance Brokerage</h1>
+      <div class="subhead">Strategic &amp; Operational Analysis</div>
 
-\vspace{0.4cm}
+      <!-- Key Metrics -->
+      <div class="metrics" aria-label="Key metrics">
+        <div class="metric">
+          <div class="value">7.5 <small>hrs</small></div>
+          <div class="label">Saved weekly<br>per staff member</div>
+        </div>
+        <div class="metric">
+          <div class="value">244%</div>
+          <div class="label">ROI on AI<br>platform investment</div>
+        </div>
+        <div class="metric">
+          <div class="value">60x</div>
+          <div class="label">Faster policy<br>comparison</div>
+        </div>
+        <div class="metric">
+          <div class="value">1M+</div>
+          <div class="label">Hours saved annually<br>(Marsh LenAI)</div>
+        </div>
+      </div>
 
-% --- NAVIGATION SECTION ---
-\begin{multicols}{2}
-    \section{Strategic Pathways}
-    \fontsize{9}{12}\selectfont
-    \begin{itemize}[leftmargin=*, labelsep=0.3cm]
-        \item[\textbf{Macro View:}] Industry transformation analysis
-        \item[\textbf{Tactical:}] Tool selection and pricing matrices
-        \item[\textbf{Risk:}] E\&O and compliance guardrails
-        \item[\textbf{Competitive:}] Big Three (Marsh/Aon/WTW) Benchmarking
-        \item[\textbf{Execution:}] 6-month deployment roadmap
-    \end{itemize}
+      <!-- What This Package Contains -->
+      <div>
+        <div class="section-title">What This Package Contains</div>
+        <p class="body">
+          This briefing synthesizes two complementary analyses of AI's impact on commercial insurance brokerage operations. Together, they provide both the strategic context (where the industry is going) and tactical execution guidance (what to do about it).
+        </p>
 
-    \columnbreak
+        <div class="exhibit" aria-label="Package contents exhibit">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:28%;">Analysis Element</th>
+                <th style="width:32%;">Core Focus</th>
+                <th style="width:40%;">Strategic Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-strong">Interactive Dashboard</td>
+                <td>Operational workflows, vendor landscape, ROI metrics, implementation timeline</td>
+                <td class="note">"What do I do Monday morning?" — specific tools, costs, and 6-month action plan</td>
+              </tr>
+              <tr>
+                <td class="col-strong">AI Playbook</td>
+                <td>Top 10 workflows, before/after analysis, risk/compliance, build vs. buy</td>
+                <td class="note">Leave-behind document for offline reference or sharing with leadership teams</td>
+              </tr>
+              <tr>
+                <td class="col-strong">Strategic Infographic</td>
+                <td>Construction &amp; Renewables verticals, Big Three tech stacks, skill evolution</td>
+                <td class="note">"Where is the industry going?" — macro trends and vertical-specific strategy</td>
+              </tr>
+              <tr>
+                <td class="col-strong">UW Submission Sample</td>
+                <td>Pre-packaged submission answering top 10 UW questions upfront</td>
+                <td class="note">Live example of AI-compressed judgment generated in under 10 minutes</td>
+              </tr>
+              <tr>
+                <td class="col-strong">Contract Scorecard Sample</td>
+                <td>Risk transfer analysis flagging where contract requirements exceed market reality</td>
+                <td class="note">Senior broker + legal overlap — flags potential coverage gaps and market frictions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-    \section{Strategic Imperative}
-    \fontsize{9}{13}\selectfont
-    \textbf{The differentiation window is closing.} 84.2\% of brokerages over \$100M have initiated AI investments. The technology is proven, the ROI is documented, and the risk can be managed. The question is no longer whether to adopt AI, but how quickly you can deploy it effectively.
-\end{multicols}
+      <!-- How to Use This Briefing -->
+      <div style="margin-top:18px;">
+        <div class="section-title">How to Use This Briefing</div>
+        <div class="grid" aria-label="How to use cards">
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Understand the 30,000-foot industry transformation</div>
+            <div class="linkline">Strategic Report &amp; Strategic Infographic</div>
+          </div>
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Review specific tools, pricing, and implementation order</div>
+            <div class="linkline">Interactive Dashboard (Vendor Matrix/Timeline)</div>
+          </div>
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Present summaries to leadership or internal stakeholders</div>
+            <div class="linkline">AI Playbook Reference</div>
+          </div>
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Assess E&amp;O risk and compliance implications</div>
+            <div class="linkline">AI Playbook (Risk &amp; Compliance section)</div>
+          </div>
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Evaluate technology stacks of top-tier global brokers</div>
+            <div class="linkline">Strategic Report Section 1 + Competitive Landscape</div>
+          </div>
+          <div class="card">
+            <div class="mini">Objective</div>
+            <div class="headline">Establish a 6-month operational implementation roadmap</div>
+            <div class="linkline">Interactive Dashboard (Timeline section)</div>
+          </div>
+        </div>
+      </div>
 
-\vfill
+      <!-- Bottom Line -->
+      <div class="bottomline" aria-label="Bottom line">
+        <div class="label">The Bottom Line</div>
+        <p>
+          84.2% of brokerages over $100M have already invested in generative AI—but enterprise rollouts take 2-3 years. The window for individual differentiation is open NOW. The technology is proven, the ROI is documented, and the risk can be managed with appropriate guardrails. The question is no longer whether to adopt AI, but how quickly you can deploy it effectively while your competitors are still deliberating.
+        </p>
+      </div>
 
-% --- FOOTER ---
-\rule{\textwidth}{0.4pt}\\
-\begin{minipage}{0.5\textwidth}
-    \fontsize{7}{9}\selectfont \color{SlateGrey}
-    Big I/Reagan Consulting 2025 | McKinsey | Aon | Marsh McLennan | WTW
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-    \flushright
-    \fontsize{7}{9}\selectfont \color{SlateGrey}
-    \textbf{Internal Strategy Document | Confidential}
-\end{minipage}
+      <!-- Footer -->
+      <div class="footer" aria-label="Footer">
+        <div class="sources">
+          Sources: Big I/Reagan Consulting 2025, McKinsey, Aon, Marsh McLennan, WTW, Risk &amp; Insurance, Insurance Journal, Industry Analysis
+        </div>
+        <div class="conf">Confidential — Strategic Use Only</div>
+      </div>
 
-\end{document}
+    </div>
+  </div>
+</body>
+</html>
