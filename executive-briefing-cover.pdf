@@ -1,0 +1,139 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+% Increased margins from 1.2cm to 2.0cm for the sides to prevent clipping
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, left=2.0cm, right=2.0cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english, bidi=basic, provide=*]{babel}
+
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Set default font to Sans Serif (Noto Sans)
+\babelfont{rm}{Noto Sans}
+
+% --- DESIGN PACKAGES ---
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+
+% Define Consulting Palette
+\definecolor{NavyBlue}{HTML}{00204E}
+\definecolor{SlateGrey}{HTML}{455A64}
+\definecolor{AccentBlue}{HTML}{F0F7FF}
+\definecolor{BorderBlue}{HTML}{A5C8E4}
+\definecolor{TextGrey}{HTML}{263238}
+
+% --- LAYOUT CONFIGURATION ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt} % Slightly reduced skip to account for larger margins
+
+% Section Header Styling
+\titleformat{\section}
+  {\color{NavyBlue}\normalfont\fontsize{11}{13}\bfseries\uppercase}
+  {}{0em}
+  {}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\begin{document}
+
+% --- HEADER BLOCK ---
+\begin{minipage}[t]{0.70\textwidth}
+    {\color{SlateGrey}\fontsize{8}{10}\selectfont STRATEGIC INTELLIGENCE UNIT | DECEMBER 2024}\\[0.2cm]
+    {\color{NavyBlue}\fontsize{24}{28}\bfseries AI in Commercial Insurance\\ Brokerage}\\[0.15cm]
+    {\color{TextGrey}\fontsize{12}{14}\selectfont 2025--2027 Strategic \& Operational Analysis}
+\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}
+    \flushright
+    \begin{tcolorbox}[colback=NavyBlue, colframe=NavyBlue, arc=0mm, top=2mm, bottom=2mm, left=2mm, right=2mm]
+        \centering
+        \color{white}\fontsize{8}{10}\selectfont \textbf{EXECUTIVE BRIEFING}\\ CONFIDENTIAL
+    \end{tcolorbox}
+\end{minipage}
+
+\vspace{0.4cm}
+
+% --- OVERVIEW ---
+\begin{tcolorbox}[colback=AccentBlue, colframe=BorderBlue, arc=0mm, boxrule=0.75pt]
+    \fontsize{10}{13}\selectfont
+    \textbf{Executive Summary:} This briefing synthesizes two complementary analyses of AI's impact on commercial insurance brokerage operations. It provides both strategic industry context and tactical execution guidance, addressing the critical transition from theoretical potential to realized operational efficiency.
+\end{tcolorbox}
+
+% --- PACKAGE CONTENTS TABLE ---
+\section{Briefing Architecture \& Strategic Focus}
+\vspace{0.1cm}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{l X X}
+    \rowcolor{NavyBlue}
+    \textbf{\color{white} DOCUMENT} & \textbf{\color{white} OPERATIONAL FOCUS} & \textbf{\color{white} EXECUTIVE USE CASE} \\ \midrule
+    \textbf{1. Interactive Dashboard} & Workflow optimization, ROI metrics. & Tool selection and implementation timelines. \\ 
+    \textbf{2. AI Playbook PDF} & Workflows, risk/compliance, build/buy. & Strategic reference for leadership teams. \\ 
+    \textbf{3. Strategic Infographic} & Vertical stacks, Big Three analysis. & Understanding vertical-specific disruption. \\ 
+    \textbf{4. Submission Samples} & UW Packages \& Contract Scorecards. & Proof of concept for AI-augmented judgment. \\ \bottomrule
+\end{tabularx}}
+
+\vspace{0.5cm}
+
+% --- KPI GRID ---
+\section{Impact Metrics: The ROI of Adoption}
+\vspace{0.2cm}
+\begin{multicols}{4}
+    \centering
+    {\color{NavyBlue}\fontsize{18}{20}\bfseries 7.5 hrs}\\[0.1cm]
+    {\fontsize{7}{9}\selectfont Weekly savings\\ per staff member}
+    
+    \columnbreak
+    
+    {\color{NavyBlue}\fontsize{18}{20}\bfseries 244\%}\\[0.1cm]
+    {\fontsize{7}{9}\selectfont ROI on AI platform\\ investment}
+    
+    \columnbreak
+    
+    {\color{NavyBlue}\fontsize{18}{20}\bfseries 60x}\\[0.1cm]
+    {\fontsize{7}{9}\selectfont Policy comparison\\ acceleration}
+    
+    \columnbreak
+    
+    {\color{NavyBlue}\fontsize{18}{20}\bfseries 1M+}\\[0.1cm]
+    {\fontsize{7}{9}\selectfont Hours saved annually\\ (Marsh McLennan)}
+\end{multicols}
+
+\vspace{0.4cm}
+
+% --- NAVIGATION SECTION ---
+\begin{multicols}{2}
+    \section{Strategic Pathways}
+    \fontsize{9}{12}\selectfont
+    \begin{itemize}[leftmargin=*, labelsep=0.3cm]
+        \item[\textbf{Macro View:}] Industry transformation analysis
+        \item[\textbf{Tactical:}] Tool selection and pricing matrices
+        \item[\textbf{Risk:}] E\&O and compliance guardrails
+        \item[\textbf{Competitive:}] Big Three (Marsh/Aon/WTW) Benchmarking
+        \item[\textbf{Execution:}] 6-month deployment roadmap
+    \end{itemize}
+
+    \columnbreak
+
+    \section{Strategic Imperative}
+    \fontsize{9}{13}\selectfont
+    \textbf{The differentiation window is closing.} 84.2\% of brokerages over \$100M have initiated AI investments. The technology is proven, the ROI is documented, and the risk can be managed. The question is no longer whether to adopt AI, but how quickly you can deploy it effectively.
+\end{multicols}
+
+\vfill
+
+% --- FOOTER ---
+\rule{\textwidth}{0.4pt}\\
+\begin{minipage}{0.5\textwidth}
+    \fontsize{7}{9}\selectfont \color{SlateGrey}
+    Big I/Reagan Consulting 2025 | McKinsey | Aon | Marsh McLennan | WTW
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \flushright
+    \fontsize{7}{9}\selectfont \color{SlateGrey}
+    \textbf{Internal Strategy Document | Confidential}
+\end{minipage}
+
+\end{document}
