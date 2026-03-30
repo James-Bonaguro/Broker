@@ -6,7 +6,9 @@
 
 This repository contains examples of **broker-grade internal work product** designed to reduce friction in complex commercial P&C accounts — particularly construction and renewable energy risks (solar EPCs, developers, GC/subs).
 
-The focus is not software, automation, or client-facing tools.
+The focus is not software, automation, or client-facing tools. 
+
+_All content is synthetic built as a prrof-of-concept._
 
 The focus is:
 - compressing senior broker judgment
@@ -65,8 +67,3 @@ Always broker-led.
 Always context-specific.
 Always reviewed.
 
-## Notes to self
-
-This repo is a thinking space.
-If it starts to look like marketing, it’s wrong.
-If it helps explain or reproduce leverage, it’s right.
