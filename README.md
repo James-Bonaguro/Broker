@@ -1,72 +1,31 @@
-[P&C Brokerage Market](https://james-bonaguro.github.io/Broker/briefing-hub.html)
+# Broker — AI-Powered Insurance Workflow Demos
 
-# Broker
+A collection of tools, templates, and prototypes demonstrating how AI can streamline commercial insurance brokerage workflows — from contract analysis to underwriting submissions.
 
-## What this is
+Built as a proof of concept for applying AI tooling to real insurance operations.
 
-This repository contains examples of **broker-grade internal work product** designed to reduce friction in complex commercial P&C accounts — particularly construction and renewable energy risks (solar EPCs, developers, GC/subs).
+## What's Here
 
-The focus is not software, automation, or client-facing tools.
+| File | What It Demonstrates |
+|------|---------------------|
+| `Solar_EPC_Contract_Insurance_Scorecard_Internal.pdf` | AI-generated contract scoring template for solar EPC insurance risk assessment |
+| `Solar_EPC_Internal_UW_Submission.pdf` | AI-assisted underwriting submission package — structured from unstructured project data |
+| `ai-broker-playbook-2025.html` | Strategic playbook for AI adoption in commercial brokerage |
+| `briefing-hub.html` | Executive briefing dashboard prototype |
+| `executive-briefing-cover.html` | Cover page template for client-facing briefings |
+| `Index.html` | Landing page tying the demos together |
 
-The focus is:
-- compressing senior broker judgment
-- standardizing “what good looks like”
-- removing cognitive load from high-friction workflows
+## The Approach
 
-The artifacts here are the kinds of documents senior brokers already create — just produced faster, more consistently, and with fewer downstream issues.
+Every template and tool here was built using a combination of Claude, ChatGPT, Gemini, and Perplexity — each applied where it's strongest. The goal was to demonstrate a value-led AI integration strategy for commercial insurance: show the workflow improvement first, then discuss implementation.
 
-## What this is NOT
+All content is synthetic — created to demonstrate capability, not sourced from real accounts or carriers.
 
-- Not a SaaS product
-- Not underwriting automation
-- Not carrier-side tooling
-- Not legal advice
-- Not client-facing deliverables
-- Not “AI replacing brokers”
+## Built With
 
-All outputs assume:
-- human review
-- broker judgment
-- compliance and E&O awareness
+Claude, ChatGPT, Gemini, Perplexity, and GitHub Pages.
 
-## Core use cases
+## Contact
 
-The artifacts in this repo map to real brokerage workflows:
-
-- Underwriter-ready submissions
-- Contract insurance exhibit scorecards
-- Coverage delta (expiring vs renewal) summaries
-- Internal stewardship and decision support
-
-These are used to:
-- anticipate underwriting objections
-- surface uninsurable contract language early
-- reduce rework and follow-ups
-- improve placement quality and renewal outcomes
-
-## Why this matters
-
-In large brokerages, the constraint is not knowledge.
-It’s time, attention, and judgment bandwidth.
-
-These artifacts demonstrate how senior-level thinking can be:
-- made repeatable
-- shared across teams
-- applied earlier in the account lifecycle
-
-## How this is used in practice
-
-Typically deployed as:
-- internal support on complex accounts
-- project-based artifact creation
-- workflow standardization for high-risk segments
-
-Always broker-led.
-Always context-specific.
-Always reviewed.
-
-## Notes to self
-
-This repo is a thinking space.
-If it starts to look like marketing, it’s wrong.
-If it helps explain or reproduce leverage, it’s right.
+Built by [James Bonaguro](https://github.com/James-Bonaguro) — Intersection Strategies LLC  
+james@intersectionstrategies.co
