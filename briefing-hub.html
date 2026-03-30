@@ -126,17 +126,16 @@
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border-light);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            overflow: hidden;
+            gap: 16px;
         }
 
         .stat-item {
-            background: var(--bg-primary);
+            background: rgba(0,45,114,0.04);
+            border: 1px solid rgba(0,45,114,0.12);
+            border-radius: 10px;
             padding: 24px 20px;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,45,114,0.06);
         }
 
         .stat-value {
@@ -157,8 +156,8 @@
 
         /* Quick Nav Section */
         .quick-nav {
-            background: var(--bg-primary);
-            padding: 40px 0;
+            background: rgba(0,45,114,0.04);
+            padding: 48px 0;
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -182,15 +181,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 16px 12px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
+            padding: 20px 14px;
+            background: #ffffff;
+            border: 1px solid rgba(0,45,114,0.15);
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,45,114,0.06);
         }
 
         .quick-nav-item:hover {
-            background: var(--border-light);
+            border-color: var(--accent-navy);
+            box-shadow: 0 4px 16px rgba(0,45,114,0.12);
             transform: translateY(-2px);
         }
 
@@ -255,16 +257,17 @@
 
         .doc-card {
             background: var(--bg-primary);
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(0,45,114,0.15);
             border-radius: 12px;
             padding: 28px;
             transition: all 0.3s ease;
             position: relative;
+            box-shadow: 0 2px 12px rgba(0,45,114,0.07);
         }
 
         .doc-card:hover {
-            border-color: var(--border-medium);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border-color: var(--accent-navy);
+            box-shadow: 0 8px 24px rgba(0,45,114,0.12);
             transform: translateY(-2px);
         }
 
@@ -325,7 +328,8 @@
             display: inline-flex;
             align-items: center;
             padding: 5px 10px;
-            background: var(--bg-tertiary);
+            background: rgba(0,45,114,0.05);
+            border: 1px solid rgba(0,45,114,0.12);
             border-radius: 4px;
             font-size: 11px;
             font-weight: 500;
@@ -402,7 +406,7 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .stats-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .doc-grid { grid-template-columns: 1fr; }
             .quick-nav-grid { grid-template-columns: repeat(3, 1fr); }
             .nav-links { display: none; }
