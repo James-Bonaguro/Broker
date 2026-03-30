@@ -4,7 +4,9 @@
 
 ## What this is
 
-This repository contains synthetic examples of **broker-grade internal work product** designed to reduce friction in complex commercial P&C accounts — particularly construction and renewable energy risks (solar EPCs, developers, GC/subs). NOTHING IN HERE COMES FROM ANY CARRIER OR BROKER. ALL MATERIALS WERE PRODUCED AS EXAMPLES.
+This repository contains synthetic examples of **broker-grade internal work product** designed to reduce friction in complex commercial P&C accounts — particularly construction and renewable energy risks (solar EPCs, developers, GC/subs). 
+
+NOTHING IN HERE COMES FROM ANY CARRIER OR BROKER. ALL MATERIALS WERE PRODUCED AS EXAMPLES.
 
 The focus is not software, automation, or client-facing tools.
 
