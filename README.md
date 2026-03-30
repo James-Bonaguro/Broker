@@ -8,7 +8,7 @@ This repository contains examples of **broker-grade internal work product** desi
 
 The focus is not software, automation, or client-facing tools. 
 
-_All content is synthetic, built as a prrof-of-concept._
+_All content is synthetic, built as a proof-of-concept._
 
 The focus is:
 - compressing senior broker judgment
