@@ -1,6 +1,6 @@
 # Broker — AI-Powered Insurance Workflow Demos
 
-A collection of tools, templates, and prototypes demonstrating how AI can streamline commercial insurance brokerage workflows — from contract analysis to underwriting submissions.
+A collection of tools, templates, and prototypes demonstrating how AI can streamline commercial insurance brokerage workflows. Ranges from contract analysis to underwriting submissions.
 
 Built as a proof of concept for applying AI tooling to real insurance operations.
 
