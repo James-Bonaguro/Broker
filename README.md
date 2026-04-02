@@ -1,71 +1,33 @@
-### [P&C Brokerage Market](https://james-bonaguro.github.io/Broker/briefing-hub.html) 
+# P&C Brokerage Intelligence Briefing
 
-
+[→ View the live site](https://james-bonaguro.github.io/Broker/briefing-hub.html)
 
 ## What this is
 
-This repository contains examples of **broker-grade internal work product** designed to reduce friction in complex commercial P&C accounts — particularly construction and renewable energy risks (solar EPCs, developers, GC/subs).
+A proof-of-concept showing what it looks like when AI tools are used multi-modally to compress senior-level expertise into a clean, structured work product.
 
-The focus is not software, automation, or client-facing tools. 
+I built this originally for a commercial P&C broker. But the insurance part isn't really the point. This same approach works anywhere the work is knowledge-intensive, the outputs are document-heavy, and the bottleneck is time and judgment bandwidth.
+
+The underlying pattern is that AI producing the kind of documents a senior person would make, faster and more consistently - is industry agnostic. This domain just happpens to be commercial insurance brokerage - specifically construction and renewable energy risks.
 
 
-## _NOTE: ALL CONTENT IS SYNTHETIC, BUILT AS A PROOF-OF-CONCEPT._
+## The bigger picture
+
+In industries like insurance, law, finance, or consulting - the constraint isn't knowledge. It's time, attention, and the bandwidth to apply senior judgment consistently across every account.
+
+This project is one example of what it looks like to close that gap.
 
 
-The focus is:
-- compressing senior broker judgment
-- standardizing “what good looks like”
-- removing cognitive load from high-friction workflows
+## What's inside
 
-The artifacts here are the kinds of documents senior brokers already create — just produced faster, more consistently, and with fewer downstream issues.
+- Competitive landscape analysis (Marsh, Aon, WTW)
+- Top 10 AI workflows with real time/ROI benchmarks
+- Vendor matrix with pricing and complexity ratings
+- E&O and compliance risk framework
+- Sample internal work products (UW submission, contract scorecard)
+- 6-month implementation roadmap
 
-## What this is NOT
+## Important
 
-- Not a SaaS product
-- Not underwriting automation
-- Not carrier-side tooling
-- Not legal advice
-- Not client-facing deliverables
-- Not “AI replacing brokers”
-
-All outputs assume:
-- human review
-- broker judgment
-- compliance and E&O awareness
-
-## Core use cases
-
-The artifacts in this repo map to real brokerage workflows:
-
-- Underwriter-ready submissions
-- Contract insurance exhibit scorecards
-- Coverage delta (expiring vs renewal) summaries
-- Internal stewardship and decision support
-
-These are used to:
-- anticipate underwriting objections
-- surface uninsurable contract language early
-- reduce rework and follow-ups
-- improve placement quality and renewal outcomes
-
-## Why this matters
-
-In large brokerages, the constraint is not knowledge.
-It’s time, attention, and judgment bandwidth.
-
-These artifacts demonstrate how senior-level thinking can be:
-- made repeatable
-- shared across teams
-- applied earlier in the account lifecycle
-
-## How this is used in practice
-
-Typically deployed as:
-- internal support on complex accounts
-- project-based artifact creation
-- workflow standardization for high-risk segments
-
-Always broker-led.
-Always context-specific.
-Always reviewed.
+**All content is synthetic.** This was built as a demonstration, not for a real client. Names, accounts, loss history, and company details are fabricated. Nothing here constitutes legal, insurance, or professional advice.
 
