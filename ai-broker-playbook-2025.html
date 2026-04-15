@@ -75,6 +75,29 @@
       .page{ box-shadow:none; margin:0; }
     }
 
+    /* ===== Mobile responsive ===== */
+    @media (max-width: 768px){
+      .wrap{ padding: 12px; gap: 12px; }
+      .page{
+        width: 100%;
+        min-height: unset;
+        padding: 24px 18px;
+        overflow: visible;
+      }
+      h1{ font-size: 22px; }
+      h2{ font-size: 16px; }
+      .metrics{ grid-template-columns: repeat(2, 1fr); }
+      .metric{ border-right: none; }
+      .exhibit{ overflow-x: auto; }
+      .footer{ flex-direction: column; align-items: flex-start; }
+      .footer .conf{ text-align: left; }
+      .footer .sources{ max-width: 100%; }
+    }
+    @media (max-width: 480px){
+      .page{ padding: 18px 14px; }
+      .metrics{ grid-template-columns: 1fr; }
+    }
+
     /* Avoid ugly splits */
     table, thead, tbody, tr, td, th { break-inside: avoid; }
     h1,h2,h3,h4,p,ul,ol,li { break-inside: avoid; }
